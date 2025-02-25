@@ -82,5 +82,6 @@ public class Demo {
         System.out.println();
         spasova.teachHistory();
         martin.teachGeo();
+        System.out.println();
     }
 }
