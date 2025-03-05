@@ -1,9 +1,10 @@
 package practice.SchoolExample;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Demo {
     public static void main(String[] args) {
-
-        School tumba = new School("Tumba");
 
 //      Ученици
         Student susela = new Student("Susela", 1);
@@ -13,39 +14,70 @@ public class Demo {
         Student mitko = new Student("Mitaka", 1);
         Student svetlio = new Student("Svetlio", 2);
 
+//      Предмети
+        Discipline istoria = new Discipline("history", 15, 2);
+        Discipline arts = new Discipline("arts", 42, 5411);
+        Discipline fizika = new Discipline("physics", 4, 1);
+        Discipline geografia = new Discipline("geography", 501, 20);
+
+        ArrayList<Discipline> petkoSubjects = new ArrayList<>(Arrays.asList(istoria, arts));
+        ArrayList<Discipline> stankaSubjects = new ArrayList<>(Arrays.asList(geografia, istoria));
+        ArrayList<Discipline> stelianSubjects = new ArrayList<>(Arrays.asList(arts));
+        ArrayList<Discipline> martinSubjects = new ArrayList<>(Arrays.asList(fizika, geografia));
+        ArrayList<Discipline> spasovaSubjects = new ArrayList<>(Arrays.asList(istoria, fizika));
+
 //      Учители
-        Teacher petko = new Teacher("Petko", "Mr.");
-        Teacher stanka = new Teacher("Stanka", "Ms.");
-        Teacher stelian = new Teacher("Stelian", "Mr.");
-        Teacher martin = new Teacher("Martin", "Mr.");
-        Teacher spasova = new Teacher("Spasova", "Ms.");
+        Teacher petko = new Teacher("Petko", "Mr.", petkoSubjects);
+        Teacher stanka = new Teacher("Stanka", "Ms.", stankaSubjects);
+        Teacher stelian = new Teacher("Stelian", "Mr.", stelianSubjects);
+        Teacher martin = new Teacher("Martin", "Mr.", martinSubjects);
+        Teacher spasova = new Teacher("Spasova", "Ms.", spasovaSubjects);
 
-//      Класове
-        Class fiveA = new Class("5A");
-        Student[] klas5A = new Student[4];
-        klas5A[0] = susela;
-        klas5A[1] = chichev;
-        klas5A[2] = joro;
-        klas5A[3] = traycho;
+//      Паралелки
+        ArrayList<Student> klas5A = new ArrayList<>();
+        klas5A.add(susela);
+        klas5A.add(chichev);
+        klas5A.add(joro);
+        klas5A.add(traycho);
 
-        Teacher[] uchiteli5A = new Teacher[3];
-        uchiteli5A[0] = petko;
-        uchiteli5A[1] = stanka;
-        uchiteli5A[2] = stelian;
+        ArrayList<Discipline> predmeti5A = new ArrayList<>();
+        predmeti5A.add(istoria);
+        predmeti5A.add(fizika);
+        predmeti5A.add(arts);
 
-        Teacher[] uchiteli5B = new Teacher[2];
-        uchiteli5B[0] = spasova;
-        uchiteli5B[1] = martin;
+        ArrayList<Teacher> uchiteli5A = new ArrayList<>();
+        uchiteli5A.add(petko);
+        uchiteli5A.add(martin);
+        uchiteli5A.add(stelian);
 
-        Class fiveB = new Class("5B");
-        Student[] klas5B = new Student[3];
-        klas5B[0] = mitko;
-        klas5B[1] = svetlio;
+        Class fiveA = new Class("5A", klas5A, uchiteli5A);
+
+        ArrayList<Student> klas5B = new ArrayList<>();
+        klas5B.add(mitko);
+        klas5B.add(svetlio);
+
+        ArrayList<Discipline> predmeti5B = new ArrayList<>();
+        predmeti5B.add(geografia);
+        predmeti5B.add(istoria);
+        predmeti5B.add(fizika);
+
+        ArrayList<Teacher> uchiteli5B = new ArrayList<>();
+        uchiteli5B.add(stanka);
+        uchiteli5B.add(spasova);
+        uchiteli5B.add(martin);
+
+        Class fiveB = new Class("5B", klas5B, uchiteli5B);
+
+        ArrayList<Class> petiKlasove = new ArrayList<>();
+        petiKlasove.add(fiveA);
+        petiKlasove.add(fiveB);
+
+        School tumba = new School("Tumba", petiKlasove);
 
 //      Демо
-        System.out.println("The name of this school is " + tumba.getName() + " and there are two classes in it: " + fiveA.getTextId() + " and " + fiveB.getTextId() + "\n");
+        System.out.println("The name of this school is " + tumba.getName() + " and there are two classes in it: " + fiveA.getClassNumber() + " and " + fiveB.getClassNumber() + "\n");
 
-        System.out.println("This is the list of students in " + fiveA.getTextId() + ":");
+        System.out.println("This is the list of students in " + fiveA.getClassNumber() + ":");
         for (Student student : klas5A) {
             if (student != null) {
                 System.out.println(student.getClassNumber() + ". " + student.getName());
@@ -53,35 +85,37 @@ public class Demo {
         }
         System.out.println();
 
-        System.out.println("And the teachers in class " + fiveA.getTextId() + " are: ");
-        for (Teacher teacher : uchiteli5A) {
-            if (teacher != null) {
-                System.out.println(teacher.getTitle() + teacher.getName());
-            }
+        System.out.println("These are the subjects the students in 5A study:");
+        for (Discipline discipline : predmeti5A) {
+            System.out.println(discipline);
         }
         System.out.println();
-        petko.teachHistory();
-        stanka.teachPhysics();
-        stelian.teachArts();
+
+        System.out.println("These are the teachers in 5A and their disciplines:");
+        for (Teacher teacher : uchiteli5A) {
+            teacher.teach();
+        }
         System.out.println();
 
-        System.out.println("This is the list of students in " + fiveB.getTextId() + ":");
+        System.out.println("This is the list of students in " + fiveB.getClassNumber() + ":");
         for (Student student : klas5B) {
             if (student != null) {
                 System.out.println(student.getClassNumber() + ". " + student.getName());
             }
         }
+        System.out.println();
+
+        System.out.println("These are the subjects the students in 5B study:");
+        for (Discipline discipline : predmeti5B) {
+            System.out.println(discipline);
+        }
 
         System.out.println();
-        System.out.println("And the teachers in class " + fiveB.getTextId() + " are: ");
+
+        System.out.println("These are the teachers in 5B and their disciplines:");
         for (Teacher teacher : uchiteli5B) {
-            if (teacher != null) {
-                System.out.println(teacher.getTitle() + teacher.getName());
-            }
+            teacher.teach();
         }
-        System.out.println();
-        spasova.teachHistory();
-        martin.teachGeo();
-        System.out.println();
+
     }
 }
