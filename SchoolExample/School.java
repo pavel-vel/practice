@@ -10,7 +10,6 @@ public class School {
         this.name = name;
         this.klasove = klasove;
     }
-
     public String getName() {
         return name;
     }
