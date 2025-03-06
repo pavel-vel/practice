@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Class {
     private String classNumber;
-    private ArrayList<Student> uchenici;
-    private ArrayList<Teacher> uchiteli;
+    private ArrayList<Student> students;
+    private ArrayList<Teacher> teachers;
 
-    public Class(String textId, ArrayList<Student> uchenici, ArrayList<Teacher> uchiteli) {
+    public Class(String textId, ArrayList<Student> students, ArrayList<Teacher> teachers) {
         this.classNumber = textId;
-        this.uchenici = uchenici;
-        this.uchiteli = uchiteli;
+        this.students = students;
+        this.teachers = teachers;
     }
 
     public String getClassNumber() {

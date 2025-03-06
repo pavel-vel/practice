@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Demo {
     public static void main(String[] args) {
 
-//      Ученици
+//      Students
         Student susela = new Student("Susela", 1);
         Student chichev = new Student("Chichev", 2);
         Student joro = new Student("Jorkata", 3);
@@ -14,7 +14,7 @@ public class Demo {
         Student mitko = new Student("Mitaka", 1);
         Student svetlio = new Student("Svetlio", 2);
 
-//      Предмети
+//      Subjects
         Discipline istoria = new Discipline("history", 15, 2);
         Discipline arts = new Discipline("arts", 42, 5411);
         Discipline fizika = new Discipline("physics", 4, 1);
@@ -26,14 +26,14 @@ public class Demo {
         ArrayList<Discipline> martinSubjects = new ArrayList<>(Arrays.asList(fizika, geografia));
         ArrayList<Discipline> spasovaSubjects = new ArrayList<>(Arrays.asList(istoria, fizika));
 
-//      Учители
+//      Teachers
         Teacher petko = new Teacher("Petko", "Mr.", petkoSubjects);
         Teacher stanka = new Teacher("Stanka", "Ms.", stankaSubjects);
         Teacher stelian = new Teacher("Stelian", "Mr.", stelianSubjects);
         Teacher martin = new Teacher("Martin", "Mr.", martinSubjects);
         Teacher spasova = new Teacher("Spasova", "Ms.", spasovaSubjects);
 
-//      Паралелки
+//      School Classes
         ArrayList<Student> klas5A = new ArrayList<>();
         klas5A.add(susela);
         klas5A.add(chichev);
@@ -74,7 +74,7 @@ public class Demo {
 
         School tumba = new School("Tumba", petiKlasove);
 
-//      Демо
+//      Demo
         System.out.println("The name of this school is " + tumba.getName() + " and there are two classes in it: " + fiveA.getClassNumber() + " and " + fiveB.getClassNumber() + "\n");
 
         System.out.println("This is the list of students in " + fiveA.getClassNumber() + ":");
