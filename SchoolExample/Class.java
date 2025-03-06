@@ -1,14 +1,20 @@
 package practice.SchoolExample;
 
-import org.w3c.dom.ls.LSOutput;
+import java.util.ArrayList;
 
 public class Class {
-    private String textId;
+    private String classNumber;
+    private ArrayList<Student> students;
+    private ArrayList<Teacher> teachers;
 
-    public Class(String textId) {
-        this.textId = textId;
+    public Class(String textId, ArrayList<Student> students, ArrayList<Teacher> teachers) {
+        this.classNumber = textId;
+        this.students = students;
+        this.teachers = teachers;
     }
-    public String getTextId() {
-        return textId;
+
+    public String getClassNumber() {
+        return classNumber;
     }
+
 }

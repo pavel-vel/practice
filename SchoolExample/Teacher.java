@@ -1,12 +1,16 @@
 package practice.SchoolExample;
 
+import java.util.ArrayList;
+
 public class Teacher {
     private String name;
     private String title;
+    private ArrayList<Discipline> disciplines;
 
-    public Teacher(String name, String title) {
+    public Teacher(String name, String title, ArrayList<Discipline> disciplines) {
         this.name = name;
         this.title = title;
+        this.disciplines = disciplines;
     }
 
     public String getName() {
@@ -17,27 +21,18 @@ public class Teacher {
         return title;
     }
 
-    Discipline istoria = new Discipline("history", 15, 2);
-
-    public void teachHistory() {
-        System.out.println(title + " " + name + " teaches " + istoria.getName());
+    public ArrayList<Discipline> getDisciplines() {
+        return disciplines;
     }
 
-    Discipline fizika = new Discipline("physics", 4, 1);
-
-    public void teachPhysics() {
-        System.out.println(title + " " + name + " teaches " + fizika.getName());
-    }
-    Discipline geografia = new Discipline("geography", 501, 20);
-
-    public void teachGeo() {
-        System.out.println(title + " " + name + " teaches " + geografia.getName());
-    }
-
-    Discipline arts = new Discipline("arts", 4, 1);
-
-    public void teachArts() {
-        System.out.println(title + " " + name + " teaches " + arts.getName());
+    public void teach() {
+        System.out.print(title + " " + name + " teaches: ");
+        for (Discipline discipline : disciplines) {
+            System.out.print(discipline.getName() + " ");
+        }
+        System.out.println();
     }
 }
+
+
 
