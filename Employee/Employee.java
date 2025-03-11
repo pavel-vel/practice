@@ -24,8 +24,8 @@ public class Employee {
         return monthlySalary;
     }
 
-    public double getYearlySalary() {
-        return (int) Math.round(monthlySalary * 12);
+    public double calculateYearlySalary() {
+        return (double) Math.round(monthlySalary * 12);
     }
 
     public void setFirstName(String firstName) {
@@ -52,7 +52,7 @@ public class Employee {
     }
 
     public void printEmployee() {
-        System.out.println(getFirstName() + " " + getLastName() + "'s yearly salary is: " + getYearlySalary() + " BGN.");
+        System.out.println(getFirstName() + " " + getLastName() + "'s yearly salary is: " + calculateYearlySalary() + " BGN.");
     }
 
 }
