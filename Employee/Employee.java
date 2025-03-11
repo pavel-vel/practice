@@ -24,8 +24,8 @@ public class Employee {
         return monthlySalary;
     }
 
-    public double getYearlySalary(){
-        return monthlySalary * 12;
+    public double getYearlySalary() {
+        return (int) Math.round(monthlySalary * 12);
     }
 
     public void setFirstName(String firstName) {
@@ -42,6 +42,18 @@ public class Employee {
         } else {
             this.monthlySalary = monthlySalary;
         }
-        }
     }
+    public void increaseMonthlySalary () {
+
+        setMonthlySalary(this.monthlySalary * 1.1);
+    }
+
+    public void printEmployeeNor () {
+        System.out.println(getFirstName() + " " + getLastName() + "'s yearly salary is: " + getMonthlySalary() * 12 + " BGN.");
+    }
+    public void printEmployeeInc () {
+        System.out.println(getFirstName() + " " + getLastName() + "'s increased yearly salary is: " + getYearlySalary() + " BGN.");
+    }
+}
+
 
