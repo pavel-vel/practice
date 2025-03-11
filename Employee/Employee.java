@@ -43,17 +43,18 @@ public class Employee {
             this.monthlySalary = monthlySalary;
         }
     }
-    public void increaseMonthlySalary () {
 
-        setMonthlySalary(this.monthlySalary * 1.1);
+    public void increaseMonthlySalary(double percentage) {
+
+        if (percentage > 0) {
+            setMonthlySalary(this.monthlySalary * (1 + percentage / 100));
+        }
     }
 
-    public void printEmployeeNor () {
-        System.out.println(getFirstName() + " " + getLastName() + "'s yearly salary is: " + getMonthlySalary() * 12 + " BGN.");
+    public void printEmployee() {
+        System.out.println(getFirstName() + " " + getLastName() + "'s yearly salary is: " + getYearlySalary() + " BGN.");
     }
-    public void printEmployeeInc () {
-        System.out.println(getFirstName() + " " + getLastName() + "'s increased yearly salary is: " + getYearlySalary() + " BGN.");
-    }
+
 }
 
 
