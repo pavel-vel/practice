@@ -11,7 +11,6 @@ public class Employee {
         setMonthlySalary(monthlySalary);
     }
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -22,10 +21,6 @@ public class Employee {
 
     public double getMonthlySalary() {
         return monthlySalary;
-    }
-
-    public double calculateYearlySalary() {
-        return (double) Math.round(monthlySalary * 12);
     }
 
     public void setFirstName(String firstName) {
@@ -43,18 +38,6 @@ public class Employee {
             this.monthlySalary = monthlySalary;
         }
     }
-
-    public void increaseMonthlySalary(double percentage) {
-
-        if (percentage > 0) {
-            setMonthlySalary(this.monthlySalary * (1 + percentage / 100));
-        }
-    }
-
-    public void printEmployee() {
-        System.out.println(getFirstName() + " " + getLastName() + "'s yearly salary is: " + calculateYearlySalary() + " BGN.");
-    }
-
 }
 
 

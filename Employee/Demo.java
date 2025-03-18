@@ -3,16 +3,16 @@ package practice.Employee;
 public class Demo {
     public static void main(String[] args) {
         Employee aleksi = new Employee("Alexi", "Sokachev", -5000);
-        Employee peter = new Employee("Peter", "Herakov", 100);
+        Employee peter = new Employee("Peter", "Herakov", 1000);
+        Methods method = new Methods();
 
-       aleksi.printEmployee();
-       peter.printEmployee();
+        method.printEmployee(aleksi);
+        method.printEmployee(peter);
 
-        aleksi.increaseMonthlySalary(10);
-        peter.increaseMonthlySalary(100);
+        method.increaseMonthlySalary(10, aleksi);
+        method.increaseMonthlySalary(100, peter);
 
-        System.out.println("\nAfter the increase their new salaries are: ");
-        aleksi.printEmployee();
-        peter.printEmployee();
+        method.printEmployeeInc(aleksi);
+        method.printEmployeeInc(peter);
     }
 }
